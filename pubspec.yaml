@@ -39,6 +39,9 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
+  # In-memory SQLite for unit/widget tests on the host (dev-only).
+  sqflite_common_ffi: ^2.3.3
+  mocktail: ^1.0.4
 
 flutter:
   uses-material-design: true
