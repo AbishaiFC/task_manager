@@ -1,17 +1,56 @@
-# task_manager
+# Task Manager — Offline-First Flutter App
 
-A new Flutter project.
+Android-only Flutter application that manages tasks with local SQLite persistence
+and bidirectional synchronization with Firebase (Auth + Cloud Firestore).
 
-## Getting Started
+## Architecture
 
-This project is a starting point for a Flutter application.
+Single Source of Truth: SQLite is the only source of truth for the UI. All reads
+come from local streams; Firebase is only used by the Sync Service.
 
-A few resources to get you started if this is your first Flutter project:
+```
+UI (Flutter) -> streams -> SQLite -> SyncService -> Firebase
+```
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## Setup
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Install Flutter 3.47+ and Android SDK.
+2. Configure Firebase:
+   - Create a Firebase project.
+   - Enable Email/Password Authentication.
+   - Create a Cloud Firestore database.
+   - Register an Android app with package name `com.apren.taskmanager.task_manager`.
+   - Download `google-services.json` and replace `android/app/google-services.json`.
+3. Run:
+   ```bash
+   flutter pub get
+   flutter run
+   ```
+
+## Firestore security rules
+
+```
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{uid}/tasks/{taskId} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+  }
+}
+```
+
+## Build
+
+```bash
+flutter build apk --debug
+flutter build apk --release
+flutter build appbundle --release
+```
+
+## Tests
+
+```bash
+flutter analyze
+flutter test
+```
