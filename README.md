@@ -22,6 +22,7 @@ UI (Flutter) -> streams -> SQLite -> SyncService -> Firebase
    - Register an Android app with package name `com.apren.taskmanager.task_manager`.
    - Download `google-services.json` and replace `android/app/google-services.json`.
 3. Run:
+
    ```bash
    flutter pub get
    flutter run

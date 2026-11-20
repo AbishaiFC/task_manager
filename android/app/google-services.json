@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "000000000000",
-    "project_id": "task-manager-placeholder",
-    "storage_bucket": "task-manager-placeholder.appspot.com"
+    "project_number": "1006764087423",
+    "project_id": "task-manager-56ab4",
+    "storage_bucket": "task-manager-56ab4.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:000000000000:android:0000000000000000000000",
+        "mobilesdk_app_id": "1:1006764087423:android:d77e9de4816b1d1609074a",
         "android_client_info": {
           "package_name": "com.apren.taskmanager.task_manager"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyPlaceholderKeyReplaceWithYourRealFirebaseApiKey"
+          "current_key": "AIzaSyCB5iKhAodx8L-6T3NHe74KncdxMitjt7Q"
         }
       ],
       "services": {
