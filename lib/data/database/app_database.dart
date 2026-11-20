@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS tasks (
   static const String createIndexDeleted = 'CREATE INDEX IF NOT EXISTS idx_tasks_is_deleted ON tasks(is_deleted);';
 
   Future<Database> get database async {
-    if (_db != null) return _db!;
+    if (_db != null && _db!.isOpen) return _db!;
     _db = await _open();
     return _db!;
   }

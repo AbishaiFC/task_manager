@@ -21,12 +21,14 @@ void callbackDispatcher() {
       await repo.refresh();
       final auth = FirebaseAuth.instance;
       if (auth.currentUser == null) {
-        await db.close();
+        // Do not close db here: closing can invalidate the shared native
+        // connection used by the main isolate. The isolate is torn down after
+        // the task completes, releasing resources automatically.
         return true;
       }
       final sync = SyncService(repository: repo, dao: dao, auth: auth);
       await sync.syncNow();
-      await db.close();
+      // Intentionally not closing db: see note above.
     } catch (_) {
       // Swallow; WorkManager will retry per policy.
     }
