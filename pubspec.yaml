@@ -1,0 +1,44 @@
+name: task_manager
+description: "Offline-first task manager with Firebase sync."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.13.5
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # Local persistence
+  sqflite: ^2.4.1
+  path: ^1.9.0
+  uuid: ^4.5.1
+
+  # Connectivity
+  connectivity_plus: ^6.1.0
+
+  # Background work (Android)
+  workmanager: ^0.6.0
+
+  # Firebase
+  firebase_core: ^3.8.0
+  firebase_auth: ^5.3.0
+  cloud_firestore: ^5.5.0
+
+  # Secure storage
+  flutter_secure_storage: ^9.2.2
+
+  # State management / DI
+  provider: ^6.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
